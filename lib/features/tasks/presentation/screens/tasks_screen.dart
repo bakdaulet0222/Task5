@@ -38,7 +38,7 @@ class _TasksScreenState extends State<TasksScreen> {
   void _addTask() {
     if (_taskController.text.isNotEmpty) {
       setState(() {
-        _tasks.add(_taskController.text.trim());
+        _tasks.add(_taskController.text);
         _taskController.clear();
       });
     }
@@ -101,7 +101,7 @@ class _TasksScreenState extends State<TasksScreen> {
             child: Text(
               AppLocalizations.of(context)!.language,
               style: TextStyle(
-                color: Colors.white, // Устанавливаем цвет текста
+                color: Colors.white,
               ),
             ),
           ),
@@ -127,14 +127,9 @@ class _TasksScreenState extends State<TasksScreen> {
                 ),
               ),
               SizedBox(height: 8.0),
-              ButtonTheme(
-                minWidth: double.infinity, // Заставляет кнопку растягиваться на всю ширину
-                child: ElevatedButton(
-                  onPressed: () {
-                    _addTask();
-                  },
-                  child: Text(AppLocalizations.of(context)!.addTask),
-                ),
+              ElevatedButton(
+                onPressed: _addTask,
+                child: Text(AppLocalizations.of(context)!.addTask),
               ),
               Expanded(
                 child: ListView.builder(
