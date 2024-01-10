@@ -14,7 +14,7 @@ class TasksScreen extends StatefulWidget {
 }
 
 class _TasksScreenState extends State<TasksScreen> {
-  final List<String> _tasks = [];
+  List<String> _tasks = [];
   final TextEditingController _taskController = TextEditingController();
   final TodoRepository _todoRepository = TodoRepository();
 
