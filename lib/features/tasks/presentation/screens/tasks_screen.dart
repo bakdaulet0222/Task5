@@ -82,8 +82,6 @@ class _TasksScreenState extends State<TasksScreen> {
     }
   }
 
-  final TextEditingController _controller = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -112,7 +110,7 @@ class _TasksScreenState extends State<TasksScreen> {
         child: Column(
           children: [
             TextField(
-              controller: _controller,
+              controller: _taskController,
               style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 fillColor: Color(0xFF191919),
