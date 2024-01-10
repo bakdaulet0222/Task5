@@ -54,9 +54,9 @@ class _TasksScreenState extends State<TasksScreen> {
             child: ListBody(
               children: <Locale>[Locale('en', ''), Locale('ru', '')]
                   .map((locale) => ListTile(
-                title: Text(_getLocaleName(locale)),
-                onTap: () => Navigator.pop(context, locale),
-              ))
+                        title: Text(_getLocaleName(locale)),
+                        onTap: () => Navigator.pop(context, locale),
+                      ))
                   .toList(),
             ),
           ),
@@ -107,46 +107,45 @@ class _TasksScreenState extends State<TasksScreen> {
           ),
         ],
       ),
-        body: Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              TextField(
-                controller: _controller,
-                style: TextStyle(color: Colors.white), // Белый текст
-                decoration: InputDecoration(
-                  fillColor: Color(0xFF191919), // Фоновый цвет поля ввода
-                  filled: true, // Включаем фоновый цвет
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide.none, // Убрать стандартные границы
-                    borderRadius: BorderRadius.circular(8.0), // Закругленные углы
-                  ),
-                  hintText: 'Введите задачу',
-                  hintStyle: TextStyle(color: Colors.white.withOpacity(0.5)), // Стиль подсказки
-                  labelText: AppLocalizations.of(context)!.newTask,
+      body: Padding(
+        padding: EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            TextField(
+              controller: _controller,
+              style: TextStyle(color: Colors.white),
+              decoration: InputDecoration(
+                fillColor: Color(0xFF191919),
+                filled: true,
+                border: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.circular(8.0),
                 ),
+                hintText: 'Введите задачу',
+                hintStyle: TextStyle(color: Colors.white.withOpacity(0.5)),
+                labelText: AppLocalizations.of(context)!.newTask,
               ),
-              SizedBox(height: 8.0),
-              ElevatedButton(
-                onPressed: _addTask,
-                child: Text(AppLocalizations.of(context)!.addTask),
-              ),
-              Expanded(
+            ),
+            SizedBox(height: 8.0),
+            ElevatedButton(
+              onPressed: _addTask,
+              child: Text(AppLocalizations.of(context)!.addTask),
+            ),
+            Expanded(
                 child: ListView.builder(
-                  itemCount: _tasks.length,
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      title: Text(
-                          _tasks[index],
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    );
-                  },
-                ),
-              ),
-            ],
-          ),
+              itemCount: _tasks.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(
+                    _tasks[index],
+                    style: TextStyle(color: Colors.white),
+                  ),
+                );
+              },
+            )),
+          ],
         ),
-      );
+      ),
+    );
   }
 }
